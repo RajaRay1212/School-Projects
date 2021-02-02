@@ -36,7 +36,7 @@ class Login implements ActionListener
 	f1.add(l2);
 	Font ft2=new Font("Arial",Font.BOLD,20);
 	l2.setFont(ft2);
-    tf1=new JTextField();
+        tf1=new JTextField();
 	tf1.setBounds(80,160,320,50);
 	f1.add(tf1);
 	
@@ -50,10 +50,6 @@ class Login implements ActionListener
 	pf.setBounds(80,260,320,50);
 	f1.add(pf);
 	
-	//see=new JButton("*");
-	//see.setBounds(380,260,19,50);
-	//f1.add(see);
-	
 	b1=new JButton("Submit");
 	b1.setBounds(80,350,320,30);
 	f1.add(b1);
@@ -62,11 +58,11 @@ class Login implements ActionListener
 	b2.setBounds(80,390,320,30);
 	f1.add(b2);
 	
-     b3=new JButton("Forgat Password ?");
-     b3.setBounds(20,480,150,20);
-     f1.add(b3);
-	 b3.setBackground(Color.WHITE);
-     b3.setForeground(Color.BLUE);
+        b3=new JButton("Forgat Password ?");
+        b3.setBounds(20,480,150,20);
+        f1.add(b3);
+	b3.setBackground(Color.WHITE);
+        b3.setForeground(Color.BLUE);
      
 	c=f1.getContentPane();
 	c.setBackground(Color.WHITE);
@@ -79,12 +75,11 @@ class Login implements ActionListener
 	
 	b3.addActionListener(new ActionListener()
 	{
-		    public void actionPerformed(ActionEvent e)
-		    {
-		      	 change();
-		    }
+              public void actionPerformed(ActionEvent e)
+	      {
+		   change();
+	      }
 	});
-	
 	      b1.addActionListener(this);
 	      b2.addActionListener(this);
 	}
@@ -131,13 +126,11 @@ class Login implements ActionListener
 	        	  ResultSet rs=stmt2.executeQuery("Select password from pass  where password='"+pf.getText()+"'");
 	             if(rs.next()==true||s1.equals("Krishna"))
 	              {
-	            	 	
-	            		 if(s1.equals("Krishna"))
+	            	 	 if(s1.equals("Krishna"))
 	            		 {
-	            
-	            			try
+	                              try
 	            			{
-	            				 stmt2=con.createStatement();
+	            			    stmt2=con.createStatement();
 	           	        	     ResultSet rs2=stmt2.executeQuery("Select password from pass  where password='"+pf.getText()+"'");
 	           	        	     if(rs2.next()==true)
 	           	        	     {
@@ -225,28 +218,24 @@ class Login implements ActionListener
 	   {
 		        public void actionPerformed(ActionEvent e)
 		        {
-		        	
-		        	System.out.println("CHANGE");
-		        	
-		        	  String s1=tf2.getText();
+		              String s1=tf2.getText();
 		              String s2=pf2.getText();
-		              
-		        	  if(tf2.getText().equals("")&&pf2.getText().equals("")&&pf3.getText().equals(""))
-	                  {
-		               JOptionPane.showMessageDialog(null,"Fill All Enteries");
-	                  }
-		        	  else if(tf2.getText().equals(""))
-		        	  {
-		        		  JOptionPane.showMessageDialog(null,"Enter User Name");
-		        	  }
-		        	  else if(pf2.getText().equals(""))
-		        	  {
-		        		  JOptionPane.showMessageDialog(null,"Enter Old Password");
-		        	  }
-		        	  else if(pf3.getText().equals(""))
-		        	  {
-		        		  JOptionPane.showMessageDialog(null,"Enter New Password");
-		        	  }
+		              if(tf2.getText().equals("")&&pf2.getText().equals("")&&pf3.getText().equals(""))
+	                      {
+		                  JOptionPane.showMessageDialog(null,"Fill All Enteries");
+	                      }
+		              else if(tf2.getText().equals(""))
+		              {
+		        	   JOptionPane.showMessageDialog(null,"Enter User Name");
+		              }
+		             else if(pf2.getText().equals(""))
+		              {
+		        	   JOptionPane.showMessageDialog(null,"Enter Old Password");
+		              }
+		              else if(pf3.getText().equals(""))
+		              {
+		        	  JOptionPane.showMessageDialog(null,"Enter New Password");
+		              }
 		        	 else 
 		        	  {
 		        		  try
@@ -297,21 +286,20 @@ class Login implements ActionListener
 		        			  JOptionPane.showMessageDialog(null,c);
 		        		  }
 		        	  }
-		        	
-		        }
+		         }
 	   });
 	   b5.addActionListener(new ActionListener()
-			  {
-				  public void actionPerformed(ActionEvent ee)
-				  {
-					     if(ee.getSource()==b5)
-	  		             {
-	  		            	 tf2.setText("");
-	  		            	 pf2.setText("");
-	  		            	 pf3.setText("");
-	  		             }
-				  }
-			   });
+	  {
+		  public void actionPerformed(ActionEvent ee)
+		   {
+			     if(ee.getSource()==b5)
+	  		      {
+	  		            tf2.setText("");
+	  		            pf2.setText("");
+	  		             pf3.setText("");
+	  		       }
+		  }
+	 });
    }
    public static void main(String []args)
    {
