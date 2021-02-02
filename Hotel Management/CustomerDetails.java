@@ -24,13 +24,13 @@ class CustomerDetails implements ActionListener,KeyListener
     Container c;
     SimpleDateFormat ft;
     Connection con;
-      PreparedStatement stmt;
-      JTable tb;
-      JScrollPane sp;
-      DefaultTableModel model;
-      Object col[]= {"Customer_ID","Name","Father_Name","Gender","Address","Mobile","DOB","Date"};
-      Object row[]=new Object[8];
-      Statement stmt2;
+     PreparedStatement stmt;
+     JTable tb;
+     JScrollPane sp;
+     DefaultTableModel model;
+     Object col[]= {"Customer_ID","Name","Father_Name","Gender","Address","Mobile","DOB","Date"};
+     Object row[]=new Object[8];
+     Statement stmt2;
      CustomerDetails()
      {
     	 f1=new JFrame();
@@ -140,8 +140,8 @@ class CustomerDetails implements ActionListener,KeyListener
     	 f1.add(datee);
     	 
     	 d1=new Date();
-		 ft=new SimpleDateFormat("dd/MM/yyyy");
-		 datee.setText(ft.format(d1));
+	 ft=new SimpleDateFormat("dd/MM/yyyy");
+	 datee.setText(ft.format(d1));
     	 
     	 b1=new JButton("Save");
     	 b1.setBounds(600,140,170,25);
@@ -182,22 +182,22 @@ class CustomerDetails implements ActionListener,KeyListener
     	 tf5.addKeyListener(this);
     	 tf6.addKeyListener(this);
     	
- 		try
+ 	try
  	     {
-			  Class.forName("com.mysql.jdbc.Driver");
-			  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
+		  Class.forName("com.mysql.jdbc.Driver");
+		 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
 			 
- 			  stmt2=con.createStatement();
- 			  ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1 where date='"+datee.getText()+"'");  
- 			  tf1.setText("1");
- 			  while(rs.next())
- 			  {
- 		          String s=String.valueOf(rs.getInt(1));
- 				  Integer iv=Integer.parseInt(s);
- 				  iv++;
-                  tf1.setText(String.valueOf(iv));
-              }
-        }
+ 		 stmt2=con.createStatement();
+ 		 ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1 where date='"+datee.getText()+"'");  
+ 		 tf1.setText("1");
+ 		 while(rs.next())
+ 		  {
+ 		         String s=String.valueOf(rs.getInt(1));
+ 			 Integer iv=Integer.parseInt(s);
+ 			 iv++;
+                        tf1.setText(String.valueOf(iv));
+                   }
+            }
  	    catch(Exception e2)
  	    {
  		        JOptionPane.showMessageDialog(null,e2);
@@ -206,38 +206,38 @@ class CustomerDetails implements ActionListener,KeyListener
  	     {
  		    public void keyPressed(KeyEvent ke)
  		    {
- 		    		  if(ke.getKeyChar()==KeyEvent.VK_ENTER)
- 					   {
+ 		    	 if(ke.getKeyChar()==KeyEvent.VK_ENTER)
+ 			 {
  						 
- 						   try
- 					   	     {
- 								  Class.forName("com.mysql.jdbc.Driver");
- 								  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
- 								  
- 								  stmt2=con.createStatement();
- 					   			  ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1 where date='"+datee.getText()+"'");
- 					   			  tf1.setText("1");
- 					   			  while(rs.next())
- 					   			  {
- 					   	              String s=String.valueOf(rs.getInt(1));
- 					   	              String s1=rs.getString(2);
- 					   				  Integer iv=Integer.parseInt(s);
- 					   				  iv++;
- 					                  tf1.setText(String.valueOf(iv));
- 					   		       }
- 					   	      }
- 					   	      catch(Exception e2)
- 					   	     {
- 					   		        JOptionPane.showMessageDialog(null,e2);
- 					   	     }
- 					   }
- 		        }
- 	     } );
+ 				  try
+ 				   {
+ 					  Class.forName("com.mysql.jdbc.Driver");
+ 					  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
+ 					  stmt2=con.createStatement();
+ 					  ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1 where date='"+datee.getText()+"'");
+ 					    tf1.setText("1");
+ 					     while(rs.next())
+ 					     {
+ 					   	     String s=String.valueOf(rs.getInt(1));
+ 					   	     String s1=rs.getString(2);
+ 					             Integer iv=Integer.parseInt(s);
+ 					   	     iv++;
+ 					             tf1.setText(String.valueOf(iv));
+ 					    }
+ 				   }
+ 				   catch(Exception e2)
+ 				  {
+ 					            JOptionPane.showMessageDialog(null,e2);
+ 			          }
+ 			   }
+ 		       }
+ 	    } );
  		 f1.setSize(850,650);
-    	 f1.setLayout(null);
-    	 f1.setVisible(true);
-    	 f1.setLocationRelativeTo(null);
+    	         f1.setLayout(null);
+    	         f1.setVisible(true);
+    	        f1.setLocationRelativeTo(null);
       }
+      /*****CODE FOR ENTER KEY USED*****/
      public void keyPressed(KeyEvent k1)
      {
             if(k1.getSource()==tf2)
@@ -295,7 +295,7 @@ class CustomerDetails implements ActionListener,KeyListener
     	 {
     		 if(tf2.getText().equals("")||tf3.getText().equals("")||tf4.getText().equals("")||tf5.getText().equals("")||tf6.getText().equals(""))
     		 {
-    				   JOptionPane.showMessageDialog(null,"Fill All Enteries");
+    		        JOptionPane.showMessageDialog(null,"Fill All Enteries");
     		 }
     		 else
     		 {
@@ -306,13 +306,12 @@ class CustomerDetails implements ActionListener,KeyListener
     	 {
     		 if(tf2.getText().equals("")||tf3.getText().equals("")||tf4.getText().equals("")||tf5.getText().equals("")||tf6.getText().equals(""))
     		 {
-    				   JOptionPane.showMessageDialog(null,"Fill Update Enteries");
+    		        JOptionPane.showMessageDialog(null,"Fill Update Enteries");
     		 }
     		 else
     		 {  
-    			 update();
+    		       update();
     		 }
-    		 
     	 }
     	 else if(e1.getSource()==search)
     	 {
@@ -326,8 +325,7 @@ class CustomerDetails implements ActionListener,KeyListener
     			 {
     				     Class.forName("com.mysql.jdbc.Driver");
     				     con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
-    					 
-    					 Statement stmt2=con.createStatement();
+    				     Statement stmt2=con.createStatement();
     				     ResultSet rs=stmt2.executeQuery("Select*from customerDetails1 where Date='"+tf7.getText()+"'");
     		             if(rs.next()==true)
     		             {
@@ -368,41 +366,39 @@ class CustomerDetails implements ActionListener,KeyListener
     	 {
     		Class.forName("com.mysql.jdbc.Driver");
     		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
-    		System.out.println("DataBase Connect");
-    	
-    		   stmt2=con.createStatement();
-	  		   ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1  where date='"+datee.getText()+"'");
-	  		   tf1.setText("1");
-	  		    while(rs.next())
-	  		    {
-	  		    	   Integer it=Integer.parseInt(rs.getString(1));
-	  		  		   it++;
-	  		  		   tf1.setText(String.valueOf(it));
-	  		    }
-	  		    Integer s1=Integer.parseInt(tf1.getText());
-	    		String s2=tf2.getText();
-	    		String s3=tf3.getText();
-	    		String s4=tf4.getText();
-	    		String s5=tf5.getText();
-	    		String s6=tf6.getText();
-	    		String s7=datee.getText();
+    	        stmt2=con.createStatement();
+	        ResultSet rs=stmt2.executeQuery("Select Customer_ID,date from customerdetails1  where date='"+datee.getText()+"'");
+	        tf1.setText("1");
+	        while(rs.next())
+	        {
+	  		  Integer it=Integer.parseInt(rs.getString(1));
+	  		  it++;
+	  		  tf1.setText(String.valueOf(it));
+	         }
+	         Integer s1=Integer.parseInt(tf1.getText());
+	         String s2=tf2.getText();
+	    	 String s3=tf3.getText();
+	    	 String s4=tf4.getText();
+	    	 String s5=tf5.getText();
+	    	 String s6=tf6.getText();
+	    	 String s7=datee.getText();
     		
-    	    stmt=con.prepareStatement("insert into customerdetails1 values(?,?,?,?,?,?,?,?)");
-    	    stmt.setInt(1,s1);
-    	    stmt.setString(2,s2);
-    	    stmt.setString(3,s3);
-    	    if(rb1.isSelected())
-    	    {
-    	    	stmt.setString(4,"Male");
-    	    }
-    	    else if(rb2.isSelected())
-    	    {
-    	         stmt.setString(4,"Female");	
-    	    }
-    	    stmt.setString(5,s4);
-    	    stmt.setString(6,s5 );
-    	    stmt.setString(7,s6);
-    	    stmt.setString(8,s7);
+    	  	  stmt=con.prepareStatement("insert into customerdetails1 values(?,?,?,?,?,?,?,?)");
+    	 	  stmt.setInt(1,s1);
+    	   	  stmt.setString(2,s2);
+    	    	  stmt.setString(3,s3);
+    	         if(rb1.isSelected())
+    	         {
+    	         	stmt.setString(4,"Male");
+    	         }
+    	        else if(rb2.isSelected())
+    	        {
+    	                stmt.setString(4,"Female");	
+    	        }
+    	         stmt.setString(5,s4);
+    	         stmt.setString(6,s5 );
+    	         stmt.setString(7,s6);
+    	         stmt.setString(8,s7);
     	    
     	    int i=stmt.executeUpdate();
     	    JOptionPane.showMessageDialog(null,"Successful"+" "+i);
@@ -417,7 +413,7 @@ class CustomerDetails implements ActionListener,KeyListener
      void update()
      {
     	 try
-		 {
+	    {
 		    Class.forName("com.mysql.jdbc.Driver");
 		    con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
 		    System.out.println("Connection Create UPDAE");
@@ -467,12 +463,12 @@ class CustomerDetails implements ActionListener,KeyListener
  		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-		    con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
+		        con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
 			
 			 Statement stmt2=con.createStatement();
-		     ResultSet rs=stmt2.executeQuery("Select*from customerDetails1 where Date='"+tf7.getText()+"'");
+		        ResultSet rs=stmt2.executeQuery("Select*from customerDetails1 where Date='"+tf7.getText()+"'");
       
-				while(rs.next())
+		      while(rs.next())
 		     	{
 		     		String s1=rs.getString(1);
 		     		String s2=rs.getString(2);
@@ -539,12 +535,12 @@ class CustomerDetails implements ActionListener,KeyListener
     	 try
     	 {
     		 Class.forName("com.mysql.jdbc.Driver");
- 		     con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
+ 		  con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Krishna_hotel2","root","123456a#");
  			 
- 			 stmt=con.prepareStatement("delete from customerdetails1 where customer_ID='"+tf1.getText()+"'&& date='"+tf7.getText()+"'");
- 			 int i=stmt.executeUpdate();
- 			 JOptionPane.showMessageDialog(null,"Delete"+" "+i);
- 		 }
+ 		   stmt=con.prepareStatement("delete from customerdetails1 where customer_ID='"+tf1.getText()+"'&& date='"+tf7.getText()+"'");
+ 		   int i=stmt.executeUpdate();
+ 		    JOptionPane.showMessageDialog(null,"Delete"+" "+i);
+ 	}
     	 catch(Exception e)
     	 {
     		 JOptionPane.showMessageDialog(null,e);
